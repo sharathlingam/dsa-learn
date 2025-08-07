@@ -1,0 +1,2 @@
+* Commit template
+     (Day - <!--<n day>-->): <!--<message>-->
