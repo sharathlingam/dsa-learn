@@ -1,3 +1,5 @@
+const { swapElInArr } = require('../utils');
+
 function bubbleSort(nums) {
 
     let isSwapped = false;
@@ -8,9 +10,7 @@ function bubbleSort(nums) {
         for (let j = 0; j < nums.length - 1 - i; j++) {
 
             if (nums[j] > nums[j + 1]) {
-                const temp = nums[j + 1];
-                nums[j + 1] = nums[j];
-                nums[j] = temp;
+                swapElInArr(nums, j + 1, j)
                 isSwapped = true;
             }
 
@@ -21,4 +21,4 @@ function bubbleSort(nums) {
     return nums;
 }
 
-console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+console.log(bubbleSort([7, 5, 2, 6, 1, 3, 4, 9, 8]));
