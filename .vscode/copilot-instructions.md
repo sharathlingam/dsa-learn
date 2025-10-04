@@ -1,2 +1,2 @@
 * Commit template
-     (Day - <!--<n day>-->): <!--<message>-->
+     (Day - <n day> - After-Relapse): <!--<message>-->
