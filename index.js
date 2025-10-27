@@ -18,29 +18,50 @@ function ListNode(val, next) {
  */
 var removeNthFromEnd = function (head, n) {
 
-    let size = 0;
-    let curr = head;
-    let sentinelNode = new ListNode();
-    sentinelNode.next = head;
-    while (curr) {
-        size++;
-        curr = curr.next;
+    // First approach;
+    // let size = 0;
+    // let curr = head;
+    // let sentinelNode = new ListNode();
+    // sentinelNode.next = head;
+    // while (curr) {
+    //     size++;
+    //     curr = curr.next;
+    // }
+
+    // let prev = sentinelNode;
+    // let removePos = size - n;
+
+    // console.log({ removePos });
+
+
+    // for (let i = 0; i < removePos; i++) {
+    //     prev = prev.next;
+    // }
+
+    // prev.next = prev?.next?.next;
+
+    // return sentinelNode.next;
+
+    // Second approach(using two pointers - One Parse);
+
+    let sentinel = new ListNode();
+
+    sentinel.next = head;
+
+    let first = sentinel;
+    let second = sentinel;
+    let count = 0;
+
+    while (first.next) {
+        ++count;
+        first = first.next;
+        if (count > n) {
+            second = second.next;
+        }
     }
 
-    let prev = sentinelNode;
-    let removePos = size - n;
-
-    console.log({ removePos });
-
-
-    for (let i = 0; i < removePos; i++) {
-        prev = prev.next;
-    }
-
-    prev.next = prev?.next?.next;
-
-    return sentinelNode.next;
-
+    second.next = second?.next?.next;
+    return sentinel.next;
 };
 
 // ----------------------
